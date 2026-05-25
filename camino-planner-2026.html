@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Camino 2026">
+<title>Camino Francés 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500&family=Lora:ital@1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0d1a0f;--bg1:#111f13;--bg2:#182a1a;
+  --glass:rgba(15,28,17,0.88);--glass2:rgba(12,22,14,0.94);
+  --gold:#C9A227;--gold-d:rgba(201,162,39,0.14);--gold-d2:rgba(201,162,39,0.07);
+  --blue:#4A6FA5;--blue-d:rgba(74,111,165,0.14);
+  --cream:#F2EDE4;--text:#E8E2D6;--text2:rgba(232,226,214,0.55);--text3:rgba(232,226,214,0.28);
+  --bdr:rgba(201,162,39,0.14);--bdr2:rgba(232,226,214,0.08);--bdr3:rgba(232,226,214,0.04);
+}
+html,body{background:var(--bg);min-height:100%}
+body{font-family:'Barlow',system-ui,sans-serif;font-weight:300;color:var(--text);max-width:480px;margin:0 auto;padding-bottom:68px;-webkit-font-smoothing:antialiased;line-height:1.65}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");mix-blend-mode:overlay;opacity:0.45}
+.hdr{padding:14px 16px 12px;background:rgba(10,20,12,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:200}
+.hdr-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.hdr-brand{display:flex;align-items:center;gap:10px}
+.hdr-shell{color:var(--gold);flex-shrink:0}
+.hdr-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;letter-spacing:1.8px;text-transform:uppercase;color:var(--cream);line-height:1.05}
+.hdr-name em{font-family:'Lora',serif;font-style:italic;font-weight:400;text-transform:none;color:var(--gold);font-size:108%;letter-spacing:0}
+.hdr-sub{font-size:10px;color:var(--text3);letter-spacing:1.2px;margin-top:2px;font-weight:400;text-transform:uppercase}
+.day-pill{background:var(--gold-d);border:1px solid var(--gold);color:var(--gold);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px}
+.hdr-stats{display:flex;border-top:1px solid var(--bdr2);padding-top:10px}
+.stat{flex:1;text-align:center;border-right:1px solid var(--bdr2)}
+.stat:last-child{border-right:none}
+.sv{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;color:var(--cream);line-height:1}
+.sl{font-size:9px;color:var(--text3);letter-spacing:0.8px;text-transform:uppercase;margin-top:2px}
+.prog{height:2px;background:rgba(232,226,214,0.08);margin-top:10px;border-radius:1px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--gold),#e8c040);border-radius:1px;transition:width .5s ease}
+.hero{position:relative;height:210px;overflow:hidden;background:var(--bg1)}
+.hero-img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,12,0.15) 0%,rgba(10,20,12,0.5) 55%,rgba(10,20,12,0.93) 100%)}
+.hero-rays{position:absolute;inset:0;pointer-events:none;background:conic-gradient(from 90deg at 50% 115%,rgba(201,162,39,0) 0deg,rgba(201,162,39,0.07) 12deg,rgba(201,162,39,0) 24deg,rgba(201,162,39,0.07) 36deg,rgba(201,162,39,0) 48deg,rgba(201,162,39,0.07) 60deg,rgba(201,162,39,0) 72deg,rgba(201,162,39,0.07) 84deg,rgba(201,162,39,0) 96deg,rgba(201,162,39,0.07) 108deg,rgba(201,162,39,0) 120deg,rgba(201,162,39,0.07) 132deg,rgba(201,162,39,0) 144deg,rgba(201,162,39,0.07) 156deg,rgba(201,162,39,0) 168deg,rgba(201,162,39,0.07) 180deg);mix-blend-mode:soft-light}
+.hero-content{position:absolute;bottom:16px;left:16px;right:16px;z-index:2}
+.hero-eye{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.hero-h{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:1.2px;color:var(--cream);line-height:1.05}
+.hero-h em{font-family:'Lora',serif;font-style:italic;font-weight:400;text-transform:none;color:var(--gold);font-size:105%;letter-spacing:0}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:rgba(8,16,9,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--bdr);display:flex;z-index:200;padding-bottom:env(safe-area-inset-bottom)}
+.nb{flex:1;background:none;border:none;padding:10px 2px 11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--text3);font-family:'Barlow',sans-serif;border-top:2px solid transparent;transition:all .2s}
+.nb.on{color:var(--gold);border-top-color:var(--gold)}
+.ni{font-size:17px;line-height:1;display:block}
+.tab{display:none}.tab.on{display:block}
+.wrap{padding:14px 14px 6px}
+.card{background:var(--glass);border:1px solid var(--bdr);border-radius:22px;margin-bottom:10px;overflow:hidden}
+.ah{padding:13px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;user-select:none}
+.ah:active{background:var(--gold-d2)}
+.al{font-family:'Barlow',sans-serif;font-size:14px;font-weight:500;color:var(--text)}
+.am{font-size:11px;color:var(--text2);margin-top:2px;font-weight:300}
+.ar{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ac{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700}
+.wa{color:var(--gold);font-size:14px;font-weight:700;transition:transform .2s;display:inline-block;line-height:1}
+.wa.op{transform:rotate(90deg)}
+.wn .ah{background:rgba(201,162,39,0.07);border-left:3px solid var(--gold)}
+.wn .al{color:var(--cream)}
+.wp{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:900;color:#2A1800;background:var(--gold);padding:2px 8px;border-radius:20px;letter-spacing:0.8px;text-transform:uppercase;display:inline-flex;align-items:center;gap:3px}
+.tr{padding:11px 16px;border-top:1px solid var(--bdr3);display:flex;gap:11px;align-items:flex-start}
+.chk{width:20px;height:20px;border-radius:5px;border:1.5px solid rgba(232,226,214,0.18);background:transparent;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;transition:all .15s;margin-top:1px;color:transparent}
+.chk.on{background:var(--gold);border-color:var(--gold);color:#2A1800}
+.tc{flex:1;min-width:0}
+.tt{font-size:13.5px;font-weight:400;line-height:1.4;cursor:pointer;color:var(--text)}
+.tt.dn{color:var(--text3);text-decoration:line-through}
+.tn{font-size:12px;color:var(--text2);line-height:1.6;margin-top:5px;font-weight:300}
+.tf{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap}
+.tg{font-size:10px;font-weight:500;color:var(--text3);background:var(--bdr3);border:1px solid var(--bdr2);padding:2px 8px;border-radius:20px;flex-shrink:0}
+.sn{background:none;border:none;font-size:11px;color:var(--text3);cursor:pointer;padding:0;font-family:'Barlow',sans-serif}
+.lk{font-size:12px;font-weight:500;color:var(--gold);text-decoration:none}
+.lk:hover{text-decoration:underline dotted}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{padding:6px 14px;border-radius:20px;border:1px solid var(--bdr2);background:rgba(232,226,214,0.04);color:var(--text2);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'Barlow',sans-serif;flex-shrink:0;transition:all .15s}
+.chip.on{background:var(--gold-d);border-color:var(--gold);color:var(--gold)}
+.itog{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.ib{padding:11px 8px;border-radius:16px;border:1px solid var(--bdr2);background:rgba(232,226,214,0.04);cursor:pointer;font-size:13px;font-weight:500;color:var(--text2);font-family:'Barlow',sans-serif;transition:all .15s}
+.ib.on{border-color:var(--gold);border-width:1.5px;color:var(--gold);background:var(--gold-d2)}
+.ms{padding:10px 16px;border-top:1px solid var(--bdr3);display:flex;gap:12px;align-items:flex-start}
+.md{min-width:52px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;color:var(--gold);padding-top:2px;flex-shrink:0;letter-spacing:0.5px;text-transform:uppercase}
+.mt{font-size:13px;line-height:1.5;color:var(--text);font-weight:300}
+.wx-card{background:var(--glass);border:1px solid var(--bdr);border-radius:22px;margin-bottom:8px;overflow:hidden}
+.wx-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(201,162,39,0.06);border-bottom:1px solid var(--bdr)}
+.wx-reg{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;color:var(--cream);text-transform:uppercase;letter-spacing:0.8px}
+.wx-dates{font-size:11px;color:var(--text2);margin-top:2px;font-weight:300}
+.wx-body{padding:12px 16px}
+.wx-temps{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.wx-hi{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--cream);letter-spacing:-0.5px}
+.wx-cond{font-size:12px;color:var(--text2);margin-bottom:8px;font-weight:300}
+.wx-brow{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.wx-bl{font-size:10px;color:var(--text3);min-width:52px;text-transform:uppercase;letter-spacing:0.5px}
+.wx-bg{flex:1;height:5px;background:rgba(232,226,214,0.08);border-radius:3px;overflow:hidden}
+.wx-bf{height:100%;border-radius:3px}
+.wx-pct{font-size:11px;color:var(--text2);min-width:30px;font-weight:500;font-family:'Barlow Condensed',sans-serif}
+.wx-note{font-size:12px;color:var(--text2);line-height:1.65;background:rgba(232,226,214,0.03);padding:9px 11px;border-radius:12px;border:1px solid var(--bdr3);font-weight:300}
+.wx-icon{font-size:26px;line-height:1}
+.quote-w{background:var(--glass);border:1px solid var(--bdr);border-radius:22px;padding:20px;margin-bottom:10px;position:relative;overflow:hidden}
+.quote-w::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--gold),rgba(201,162,39,0.1))}
+.qm{font-size:44px;line-height:0.75;color:rgba(201,162,39,0.25);font-family:Georgia,serif;margin-bottom:10px}
+.qt{font-family:'Lora',serif;font-style:italic;font-size:15px;line-height:1.75;color:var(--cream)}
+.qa{font-size:11px;color:var(--gold);margin-top:12px;font-weight:500;letter-spacing:0.3px}
+.ci{background:var(--blue-d);border:1px solid rgba(74,111,165,0.2);border-radius:22px;padding:15px 16px;margin-bottom:10px;font-size:13px;color:var(--text2);line-height:1.7;font-weight:300}
+.adc{background:var(--glass);border:1px solid var(--bdr2);border-radius:22px;padding:14px 16px;margin-bottom:8px}
+.adc-t{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;color:var(--cream);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.adc-b{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:8px;font-weight:300}
+.adc-s{font-size:10px;color:var(--text3);letter-spacing:0.3px}
+.bt{padding:20px;text-align:center;background:var(--glass2);border:1px solid var(--bdr);border-radius:22px;margin-bottom:10px}
+.bt-l{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;color:var(--text3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px}
+.ba{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:900;color:var(--cream);letter-spacing:-0.5px}
+.bs{font-size:12px;color:var(--text3);margin-top:6px;font-weight:300}
+.br2{padding:12px 16px}
+.bt2{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:4px}
+.bc{font-size:13.5px;font-weight:400;flex:1;line-height:1.35;color:var(--text)}
+.bv{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;color:var(--gold);white-space:nowrap;flex-shrink:0}
+.bn{font-size:12px;color:var(--text2);line-height:1.5;font-weight:300}
+.tip-b{background:var(--blue-d);border:1px solid rgba(74,111,165,0.18);border-radius:22px;padding:14px 16px;margin-bottom:10px}
+.tip-b h3{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.tip-b li{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:4px;margin-left:14px;font-weight:300}
+.info-b{background:var(--glass);border:1px solid var(--bdr2);border-radius:22px;padding:14px 16px;margin-bottom:8px}
+.info-b h3{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:var(--text2);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.info-b p{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:6px;font-weight:300}
+.info-b p:last-child{margin-bottom:0}
+.sect{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;color:var(--text2);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sect::after{content:'';flex:1;height:1px;background:var(--bdr2)}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="hdr-brand">
+      <span class="hdr-shell"><svg width="22" height="24" viewBox="0 0 24 26" fill="none"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="#C9A227"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.7" stroke-linecap="round"/><line x1="12" y1="24" x2="8.5" y2="3.2" stroke="rgba(0,0,0,0.3)" stroke-width="0.7" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.7" stroke-linecap="round"/><line x1="12" y1="24" x2="15.5" y2="3.2" stroke="rgba(0,0,0,0.3)" stroke-width="0.7" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.7" stroke-linecap="round"/><path d="M7.5 22Q12 25.5 16.5 22" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="0.9" stroke-linecap="round"/></svg></span>
+      <div>
+        <div class="hdr-name">Camino <em>Franécs</em> 2026</div>
+        <div class="hdr-sub">Burgos · Santiago · Porto</div>
+      </div>
+    </div>
+    <div class="day-pill"><span id="dv">42</span> days</div>
+  </div>
+  <div class="hdr-stats">
+    <div class="stat"><div class="sv" id="tv">0/30</div><div class="sl">Tasks</div></div>
+    <div class="stat"><div class="sv" id="gv">0/30</div><div class="sl">Gear</div></div>
+    <div class="stat"><div class="sv" id="pv">0%</div><div class="sl">Complete</div></div>
+  </div>
+  <div class="prog"><div class="pf" id="pf" style="width:0%"></div></div>
+</div>
+
+<div class="tab on" id="tab-timeline">
+  <div class="hero">
+    <img class="hero-img" src="https://source.unsplash.com/480x210/?camino+de+santiago+stone+path" loading="lazy" onerror="this.style.opacity=0">
+    <div class="hero-grad"></div><div class="hero-rays"></div>
+    <div class="hero-content">
+      <div class="hero-eye"><svg width="11" height="12" viewBox="0 0 24 26" fill="none" style="display:inline-block;vertical-align:middle"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="currentColor"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/></svg> Week by week</div>
+      <h2 class="hero-h">Your 6-Week <em>Preparation</em></h2>
+    </div>
+  </div>
+  <div class="wrap" id="tl"></div>
+</div>
+
+<div class="tab" id="tab-tasks">
+  <div class="hero">
+    <img class="hero-img" src="https://source.unsplash.com/480x210/?hiking+trail+boots+path" loading="lazy" onerror="this.style.opacity=0">
+    <div class="hero-grad"></div><div class="hero-rays"></div>
+    <div class="hero-content">
+      <div class="hero-eye"><svg width="11" height="12" viewBox="0 0 24 26" fill="none" style="display:inline-block;vertical-align:middle"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="currentColor"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/></svg> Full checklist</div>
+      <h2 class="hero-h">Every <em>Step</em> Planned</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="chips" id="chips"></div>
+    <p id="tsum" style="font-size:12px;color:var(--text2);margin-bottom:10px;font-weight:300"></p>
+    <div class="card" id="tlist"></div>
+  </div>
+</div>
+
+<div class="tab" id="tab-trip">
+  <div class="hero">
+    <img class="hero-img" src="https://source.unsplash.com/480x210/?spain+green+hills+landscape+medieval" loading="lazy" onerror="this.style.opacity=0">
+    <div class="hero-grad"></div><div class="hero-rays"></div>
+    <div class="hero-content">
+      <div class="hero-eye"><svg width="11" height="12" viewBox="0 0 24 26" fill="none" style="display:inline-block;vertical-align:middle"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="currentColor"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/></svg> Route &amp; weather</div>
+      <h2 class="hero-h">The <em>Way</em> Ahead</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="itog">
+      <button class="ib on" id="ib-m" onclick="setPlan('main')">Burgos start</button>
+      <button class="ib" id="ib-b" onclick="setPlan('backup')">León backup</button>
+    </div>
+    <div id="trip-c"></div>
+  </div>
+</div>
+
+<div class="tab" id="tab-gear">
+  <div class="hero">
+    <img class="hero-img" src="https://source.unsplash.com/480x210/?hiking+backpack+mountains+adventure" loading="lazy" onerror="this.style.opacity=0">
+    <div class="hero-grad"></div><div class="hero-rays"></div>
+    <div class="hero-content">
+      <div class="hero-eye"><svg width="11" height="12" viewBox="0 0 24 26" fill="none" style="display:inline-block;vertical-align:middle"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="currentColor"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/></svg> Equipment</div>
+      <h2 class="hero-h">Pack <em>Light</em>, Walk Far</h2>
+    </div>
+  </div>
+  <div class="wrap" id="gear-c"></div>
+</div>
+
+<div class="tab" id="tab-wisdom">
+  <div class="hero">
+    <img class="hero-img" src="https://source.unsplash.com/480x210/?galicia+spain+misty+green+forest" loading="lazy" onerror="this.style.opacity=0">
+    <div class="hero-grad"></div><div class="hero-rays"></div>
+    <div class="hero-content">
+      <div class="hero-eye"><svg width="11" height="12" viewBox="0 0 24 26" fill="none" style="display:inline-block;vertical-align:middle"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="currentColor"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/></svg> Coelho &amp; pilgrims</div>
+      <h2 class="hero-h">Words for <em>the Road</em></h2>
+    </div>
+  </div>
+  <div class="wrap" id="wis-c"></div>
+</div>
+
+<div class="tab" id="tab-budget">
+  <div class="hero">
+    <img class="hero-img" src="https://source.unsplash.com/480x210/?spain+medieval+village+stone+cathedral" loading="lazy" onerror="this.style.opacity=0">
+    <div class="hero-grad"></div><div class="hero-rays"></div>
+    <div class="hero-content">
+      <div class="hero-eye"><svg width="11" height="12" viewBox="0 0 24 26" fill="none" style="display:inline-block;vertical-align:middle"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="currentColor"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/></svg> Cost breakdown</div>
+      <h2 class="hero-h">The <em>Investment</em></h2>
+    </div>
+  </div>
+  <div class="wrap" id="bud-c"></div>
+</div>
+
+<nav class="nav">
+  <button class="nb on" onclick="go('timeline')"><span class="ni">→</span>Timeline</button>
+  <button class="nb" onclick="go('tasks')"><span class="ni">✓</span>Tasks</button>
+  <button class="nb" onclick="go('trip')"><span class="ni">◎</span>Route</button>
+  <button class="nb" onclick="go('gear')"><span class="ni">◈</span>Gear</button>
+  <button class="nb" onclick="go('wisdom')"><span class="ni">✶</span>Wisdom</button>
+  <button class="nb" onclick="go('budget')"><span class="ni">€</span>Budget</button>
+</nav>
+<script>
+const SH=`<svg width="11" height="12" viewBox="0 0 24 26" fill="none" style="display:inline-block;vertical-align:middle"><path d="M12 24C8.5 18.5 3.5 13.5 3.5 9C3.5 5.6 7.2 3 12 3C16.8 3 20.5 5.6 20.5 9C20.5 13.5 15.5 18.5 12 24Z" fill="currentColor"/><line x1="12" y1="24" x2="5.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="12" y2="3" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/><line x1="12" y1="24" x2="18.5" y2="4.5" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" stroke-linecap="round"/></svg>`;
+
+const WEEKS=[
+  {id:'w1',label:'Week 1 \u2014 act now',dates:'May 25\u2013June 1',theme:'Book & apply',tasks:[
+    {id:'w1t1',text:'Apply for Global Entry',tag:'admin',link:'https://ttp.dhs.gov',note:'Takes 2\u20136 weeks \u2014 do this today. Check if your credit card reimburses the $120 fee.'},
+    {id:'w1t2',text:'Book flights \u2014 PHL\u2192MAD & OPO\u2192PHL open-jaw',tag:'travel',link:'https://www.google.com/flights',note:'American Airlines nonstop PHL\u2192MAD (~7h 15m, evening departures).'},
+    {id:'w1t3',text:'Order Pilgrim Credential',tag:'camino',link:'https://americanpilgrims.org/credential/',note:'Required for albergues and for the Compostela certificate in Santiago.'},
+    {id:'w1t4',text:'Begin training \u2014 45\u201360 min walks, 4x/week',tag:'training',note:'Start wearing your trail runners from day one. Break them in now.'},
+    {id:'w1t5',text:'Order trail runners \u2014 half size up',tag:'gear',link:'https://www.rei.com/search?q=trail+runners+hiking',note:'Salomon Speedcross, Hoka Speedgoat, Brooks Cascadia, or Altra Lone Peak.'},
+  ]},
+  {id:'w2',label:'Week 2',dates:'June 2\u20138',theme:'Gear up',tasks:[
+    {id:'w2t1',text:'Get fitted for pack at REI in person',tag:'gear',link:'https://www.rei.com/search?q=osprey+talon+33',note:'Osprey Talon 33\u201340L. A proper in-store fitting loaded with weight is essential.'},
+    {id:'w2t2',text:'Buy merino wool socks \u2014 3 to 4 pairs',tag:'gear',link:'https://darntough.com',note:'Darn Tough or Balega only. No cotton ever.'},
+    {id:'w2t3',text:'Book first night hotel in Burgos',tag:'travel',link:'https://www.booking.com/city/es/burgos.html',note:'Near the cathedral. July 7 arrival. Jet-lagged \u2014 book somewhere comfortable.'},
+    {id:'w2t4',text:'Train with loaded pack 2x/week',tag:'training',note:'10\u201312 lbs. Walk both Saturday and Sunday.'},
+    {id:'w2t5',text:'First back-to-back weekend walk',tag:'training',note:'Simulates the consecutive-day pattern of the Camino.'},
+  ]},
+  {id:'w3',label:'Week 3',dates:'June 9\u201315',theme:'Admin & insurance',tasks:[
+    {id:'w3t1',text:'Get travel insurance',tag:'admin',link:'https://www.worldnomads.com',note:'World Nomads covers medical evacuation and gear theft.'},
+    {id:'w3t2',text:'Book Porto hotel \u2014 2 to 3 nights',tag:'travel',link:'https://www.booking.com/city/pt/porto.html',note:'Ribeira or Baixa district. July is peak \u2014 book now.'},
+    {id:'w3t3',text:'Download Buen Camino app + offline maps',tag:'camino',link:'https://apps.apple.com/us/app/buen-camino/id469186319',note:'Download the full route offline before you leave the U.S.'},
+    {id:'w3t4',text:"Order Brierley's guidebook",tag:'camino',link:'https://www.amazon.com/s?k=brierley+camino+frances+guide',note:'The classic pilgrim guidebook. Stage-by-stage maps, albergue listings.'},
+    {id:'w3t5',text:'Build to 90-min walks on mixed terrain',tag:'training',note:'Hills, gravel, uneven ground. Not just flat pavement.'},
+  ]},
+  {id:'w4',label:'Week 4',dates:'June 16\u201322',theme:'Dog & reservations',tasks:[
+    {id:'w4t1',text:'Book dog boarding \u2014 barKadelphia',tag:'logistics',link:'https://barkadelphia.com',note:'614 S. 3rd St, Queen Village. Cage-free, CPR-certified. Confirm 2-week overnight availability.'},
+    {id:'w4t2',text:'Set up Rover as boarding backup',tag:'logistics',link:'https://www.rover.com/queens-village--pa--dog-boarding/',note:'~$60/night median in Queen Village. Book early for July.'},
+    {id:'w4t3',text:'Reserve albergues \u2014 first 2\u20133 stages from Burgos',tag:'camino',link:'https://www.gronze.com',note:'July is crowded. A few key stages fill up. Gronze.com has full listings.'},
+    {id:'w4t4',text:'Buy Compeed and Body Glide',tag:'gear',link:'https://www.amazon.com/s?k=compeed+blister+patches',note:'Apply Body Glide every morning. Apply Compeed at the first hot spot.'},
+    {id:'w4t5',text:'First long walk \u2014 10 to 12 miles with pack',tag:'training',note:'Note hot spots and rubbing. Address gear issues now, not on the trail.'},
+  ]},
+  {id:'w5',label:'Week 5',dates:'June 23\u201329',theme:'Peak training',tasks:[
+    {id:'w5t1',text:'Long walk \u2014 12 to 14 miles with full pack',tag:'training',note:'Your peak training day. Wear exactly what you are taking to Spain.'},
+    {id:'w5t2',text:'Confirm all bookings',tag:'admin',note:'Flights, Burgos hotel, Porto hotel, dog boarding. Forward confirmations to yourself.'},
+    {id:'w5t3',text:'Full pack shakedown \u2014 carry it 5 miles',tag:'gear',note:'Everything loaded. Cut anything unused. Every ounce is felt by mile 300.'},
+    {id:'w5t4',text:'Notify bank and credit cards of travel',tag:'admin',note:'Spain + Portugal, July 6\u201330. Include any backup cards.'},
+    {id:'w5t5',text:'Check passport validity',tag:'admin',note:'Must be valid 6+ months past July 29. Renew if expires before Jan 29, 2027.'},
+  ]},
+  {id:'w6',label:'Week 6 \u2014 taper',dates:'June 30\u2013July 6',theme:'Final prep',tasks:[
+    {id:'w6t1',text:'Taper \u2014 reduce mileage, keep moving',tag:'training',note:'Short walks only. Body needs to recover before the real thing.'},
+    {id:'w6t2',text:'Final pack \u2014 nothing new in the bag',tag:'gear',note:'Every item should have miles on it already. No brand-new gear on the Camino.'},
+    {id:'w6t3',text:'Download Spanish offline in Google Translate',tag:'logistics',link:'https://apps.apple.com/us/app/google-translate/id414706506',note:'Download Spanish pack for offline use before boarding.'},
+    {id:'w6t4',text:'Drop dog at barKadelphia',tag:'logistics',link:'https://barkadelphia.com',note:'Do a trial overnight earlier in the week if it is their first stay.'},
+    {id:'w6t5',text:'Depart July 6 \u2014 Buen Camino',tag:'camino',note:'Evening flight PHL\u2192MAD. Arrive Madrid July 7. Train to Burgos. The walk begins.'},
+  ]},
+];
+
+const GEAR=[
+  {id:'footwear',label:'Footwear',items:[
+    {id:'g1',text:'Trail runners \u2014 half size up',note:'Salomon Speedcross, Hoka Speedgoat, Brooks Cascadia, or Altra Lone Peak.',link:'https://www.rei.com/search?q=trail+runners+hiking',lbl:'Shop REI'},
+    {id:'g2',text:'Sport sandals or camp shoes',note:'For evenings, rest days, and airing feet mid-day.',link:'https://www.rei.com/search?q=sport+sandals',lbl:'Shop REI'},
+    {id:'g3',text:'Merino wool socks \u2014 3 to 4 pairs',note:'Darn Tough or Balega only. No cotton ever.',link:'https://darntough.com',lbl:'Darn Tough'},
+  ]},
+  {id:'pack',label:'Pack & sleep',items:[
+    {id:'g4',text:'Backpack 33\u201340L \u2014 fitted in person',note:'Osprey Talon 33 or Stratos 34. Go to REI for a proper fitting loaded with weight.',link:'https://www.rei.com/search?q=osprey+talon+33',lbl:'Shop Osprey'},
+    {id:'g5',text:'Sleeping bag liner \u2014 silk or merino',note:'Sea to Summit silk liner. Light, hygienic, enough for July albergues.',link:'https://www.rei.com/search?q=sea+to+summit+silk+liner',lbl:'Shop REI'},
+    {id:'g6',text:'Pack rain cover',note:'Many Ospreys include one. Essential for Galicia.',link:'https://www.rei.com/search?q=backpack+rain+cover',lbl:'Shop REI'},
+  ]},
+  {id:'clothing',label:'Clothing',items:[
+    {id:'g7',text:'2\u20133 lightweight quick-dry shirts',note:'Merino wool or synthetic. Wash nightly, wear daily.',link:'https://www.rei.com/search?q=merino+wool+t+shirt',lbl:'Shop REI'},
+    {id:'g8',text:'Long-sleeve sun shirt UPF 50+',note:'Critical for July sun on the Meseta.',link:'https://www.rei.com/search?q=upf+50+sun+shirt+hiking',lbl:'Shop REI'},
+    {id:'g9',text:'Hiking pants or zip-off convertibles',note:'REI Co-op Sahara is a pilgrim favorite.',link:'https://www.rei.com/search?q=convertible+hiking+pants',lbl:'Shop REI'},
+    {id:'g10',text:'Light fleece or midlayer',note:'For cool Galician mornings and the descent off O Cebreiro.',link:'https://www.rei.com/search?q=lightweight+fleece+jacket',lbl:'Shop REI'},
+    {id:'g11',text:'Packable rain jacket',note:'Must compress to fist-size. Patagonia Torrentshell or similar.',link:'https://www.rei.com/search?q=packable+rain+jacket',lbl:'Shop REI'},
+    {id:'g12',text:'3 pairs merino underwear',note:'ExOfficio or Smartwool. Wash nightly, dry by morning.',link:'https://www.amazon.com/s?k=exofficio+underwear',lbl:'Amazon'},
+    {id:'g13',text:'Wide-brimmed hat or cap',note:'Not optional in July. Essential shade on the Meseta.',link:'https://www.rei.com/search?q=sun+hat+hiking+upf',lbl:'Shop REI'},
+    {id:'g14',text:'Buff or neck gaiter',note:'Sun protection, dust, cool mornings. Most versatile item in the bag.',link:'https://www.amazon.com/s?k=buff+neck+gaiter',lbl:'Amazon'},
+  ]},
+  {id:'tools',label:'Tools & tech',items:[
+    {id:'g15',text:'Trekking poles',note:'Recommended for knee health on descents. Black Diamond Distance Carbon Z.',link:'https://www.rei.com/search?q=black+diamond+trekking+poles',lbl:'Shop REI'},
+    {id:'g16',text:'Headlamp',note:'You will start at 5:30\u20136am in July. Black Diamond Spot.',link:'https://www.rei.com/search?q=black+diamond+spot+headlamp',lbl:'Shop REI'},
+    {id:'g17',text:'1L water bottle or soft flask',note:'Carry 2L minimum on the Meseta. Fountains 6\u20139 miles apart.',link:'https://www.rei.com/search?q=soft+flask+1l',lbl:'Shop REI'},
+    {id:'g18',text:'Quick-dry travel towel',note:'Not always provided. Sea to Summit XS is ultra-compact.',link:'https://www.amazon.com/s?k=sea+to+summit+travel+towel',lbl:'Amazon'},
+    {id:'g19',text:'Small dry bag for phone and passport',note:'Protect your credencial and phone from Galician rain.',link:'https://www.amazon.com/s?k=small+dry+bag+waterproof',lbl:'Amazon'},
+  ]},
+  {id:'health',label:'Health & foot care',items:[
+    {id:'g20',text:'Compeed blister patches \u2014 large supply',note:'Apply at the first hot spot, before blisters form.',link:'https://www.amazon.com/s?k=compeed+blister+patches',lbl:'Amazon'},
+    {id:'g21',text:'Body Glide anti-chafe balm',note:'Apply to feet, inner thighs, underarms every single morning.',link:'https://www.amazon.com/s?k=body+glide+original',lbl:'Amazon'},
+    {id:'g22',text:'Ibuprofen or naproxen',note:'Bring a starter supply; replenish at Spanish farmacias.',link:'https://www.amazon.com/s?k=ibuprofen+200mg',lbl:'Amazon'},
+    {id:'g23',text:'Electrolyte packets',note:'Critical for July heat. Liquid IV or Nuun tablets.',link:'https://www.amazon.com/s?k=liquid+iv+electrolyte',lbl:'Amazon'},
+    {id:'g24',text:'SPF 50+ sunscreen',note:'Start with a tube; refill at farmacias along the route.',link:'https://www.amazon.com/s?k=sunscreen+spf+50+sport',lbl:'Amazon'},
+    {id:'g25',text:'Needle and thread for blister draining',note:'Pilgrim method: thread through blister, leave in to drain overnight.',link:'https://www.amazon.com/s?k=sewing+needle+kit+small',lbl:'Amazon'},
+  ]},
+  {id:'docs',label:'Documents & apps',items:[
+    {id:'g26',text:'Pilgrim Credential ordered',note:'Required for albergues and Compostela certificate.',link:'https://americanpilgrims.org/credential/',lbl:'Order now'},
+    {id:'g27',text:'Buen Camino app with offline maps',note:'Download the full route offline before you leave.',link:'https://apps.apple.com/us/app/buen-camino/id469186319',lbl:'App Store'},
+    {id:'g28',text:"Brierley Camino Franc\u00e9s guidebook",note:'Physical book, stage-by-stage maps. The pilgrim bible.',link:'https://www.amazon.com/s?k=brierley+camino+frances+guide',lbl:'Amazon'},
+    {id:'g29',text:'Global Entry applied',note:'$120 for 5 years, includes TSA PreCheck. Apply immediately.',link:'https://ttp.dhs.gov',lbl:'Apply now'},
+    {id:'g30',text:'Travel insurance policy saved offline',note:'World Nomads. Keep policy number in phone photos and email.',link:'https://www.worldnomads.com',lbl:'World Nomads'},
+  ]},
+];
+
+const BUDGET=[
+  {cat:'Flights \u2014 PHL\u2192MAD + OPO\u2192PHL open-jaw',lo:1000,hi:1400,note:'American Airlines nonstop PHL\u2192MAD. Book now for July.'},
+  {cat:'Trains \u2014 Madrid\u2192Burgos + Santiago\u2192Porto',lo:80,hi:120,note:'Renfe high-speed ~2.5h to Burgos. Book via renfe.com or Omio.'},
+  {cat:'Albergue dorms \u2014 14 to 15 nights',lo:160,hi:280,note:'\u20ac10\u201312 municipal, \u20ac15\u201320 private dorms.'},
+  {cat:'Private room upgrades \u2014 2 to 3 nights',lo:80,hi:160,note:'Worth it mid-trip when your body needs real rest.'},
+  {cat:'Daily food on Camino',lo:350,hi:500,note:'~\u20ac25\u201335/day: grocery breakfast and lunch, pilgrim dinner (\u20ac12\u201315).'},
+  {cat:'Coffee, wine & snacks',lo:80,hi:150,note:'Caf\u00e9 con leche and tortilla is your daily ritual. ~\u20ac3\u20135/stop.'},
+  {cat:'Pharmacy & health supplies',lo:40,hi:80,note:'Spanish farmacias are excellent and affordable.'},
+  {cat:'Porto \u2014 2 to 3 nights',lo:150,hi:300,note:"You've earned good food. Port wine country \u2014 don't skimp."},
+  {cat:'Dog boarding \u2014 14 nights',lo:700,hi:900,note:'~$60/night Rover median in Queen Village.'},
+  {cat:'Gear \u2014 pack, shoes, poles, clothing',lo:300,hi:700,note:'Depends on what you already own. Shoes and pack are the big ones.'},
+  {cat:'Travel insurance',lo:80,hi:150,note:'World Nomads. Medical coverage essential for a 3-week trip.'},
+  {cat:'Global Entry',lo:120,hi:120,note:'One-time $120 for 5 years. Many credit cards reimburse this.'},
+];
+
+const ITINS={
+  main:{
+    sub:'~500km / 311 miles \u00b7 return ~July 29\u201330',
+    note:'Best with 3.5 weeks. Full Camino Franc\u00e9s: Meseta, Cruz de Ferro, O Cebreiro, and all of Galicia.',
+    milestones:[
+      {date:'Jul 6',text:'Fly PHL\u2192MAD, evening departure, 7h 15m nonstop'},
+      {date:'Jul 7',text:'Arrive Madrid \u2192 train to Burgos (~2.5h). Cathedral. Rest.'},
+      {date:'Jul 8',text:'Begin walking \u2014 Burgos \u2192 Hornillos del Camino (21km / 13mi)'},
+      {date:'Jul 10\u201311',text:'The Meseta. Castrojeriz. Start by 6am \u2014 no shade for miles.'},
+      {date:'Jul 12\u201313',text:'Carri\u00f3n de los Condes \u2192 Sah\u00e1g\u00fan (halfway point)'},
+      {date:'Jul 14',text:'Rest day \u2014 celebrate the halfway point.'},
+      {date:'Jul 15\u201316',text:'Le\u00f3n \u2014 extraordinary Gothic cathedral and stained glass.'},
+      {date:'Jul 17\u201318',text:'Astorga \u2192 Rabanal del Camino. Entering the mountains.'},
+      {date:'Jul 19\u201320',text:'Cruz de Ferro \u2192 Molinaseca \u2192 Villafranca del Bierzo.'},
+      {date:'Jul 21',text:'Rest day in Villafranca before the O Cebreiro climb.'},
+      {date:'Jul 22',text:'O Cebreiro \u2014 the long climb into Galicia. Mist and green.'},
+      {date:'Jul 23\u201324',text:'Triacastela \u2192 Sarria. Last 100km / 62mi begins here.'},
+      {date:'Jul 25\u201327',text:'Portomarin \u2192 Palas de Rei \u2192 Arz\u00faa. Eucalyptus forests.'},
+      {date:'Jul 28',text:'Santiago de Compostela. Arrive at the cathedral.'},
+      {date:'Jul 29',text:'Pilgrim Mass, Botafumeiro, Compostela certificate. Rest.'},
+      {date:'Jul 30',text:'Train Santiago \u2192 Porto (3.5h).'},
+      {date:'Jul 31\u2013Aug 1',text:'Porto \u2014 Ribeira, Douro, port wine, past\u00e9is de nata.'},
+      {date:'Aug 2',text:'Fly Porto (OPO) \u2192 Philadelphia.'},
+    ]
+  },
+  backup:{
+    sub:'~311km / 193 miles \u00b7 return ~July 25\u201326',
+    note:'Use this to return earlier. Skips the Meseta but keeps Cruz de Ferro, O Cebreiro, and all of Galicia.',
+    milestones:[
+      {date:'Jul 6',text:'Fly PHL\u2192MAD, evening departure, 7h 15m nonstop'},
+      {date:'Jul 7',text:'Arrive Madrid \u2192 train to Le\u00f3n (~2h). Get credential. Rest.'},
+      {date:'Jul 8',text:'Begin walking \u2014 Le\u00f3n \u2192 San Mart\u00edn del Camino (25km / 15.5mi)'},
+      {date:'Jul 9\u201310',text:'Astorga \u2192 Rabanal del Camino. Entering the mountains.'},
+      {date:'Jul 11',text:'Cruz de Ferro \u2192 Molinaseca (27km / 17mi). A big, meaningful day.'},
+      {date:'Jul 12\u201313',text:'Villafranca del Bierzo \u2192 rest day.'},
+      {date:'Jul 14',text:'O Cebreiro \u2014 the long climb into Galicia.'},
+      {date:'Jul 15\u201316',text:'Triacastela \u2192 Sarria. Last 100km / 62mi begins.'},
+      {date:'Jul 17\u201318',text:'Portomarin \u2192 Palas de Rei \u2192 Arz\u00faa.'},
+      {date:'Jul 19',text:'Santiago de Compostela. Arrive at the cathedral.'},
+      {date:'Jul 20',text:'Pilgrim Mass, Compostela certificate, rest.'},
+      {date:'Jul 21',text:'Train Santiago \u2192 Porto (3.5h).'},
+      {date:'Jul 22\u201324',text:'Porto \u2014 Ribeira, Douro, port wine, past\u00e9is de nata.'},
+      {date:'Jul 25',text:'Fly Porto (OPO) \u2192 Philadelphia. Arrive July 26.'},
+    ]
+  }
+};
+
+const WX=[
+  {region:'Burgos \u2192 Sah\u00e1g\u00fan',dates:'Jul 8\u201314 \u00b7 Meseta',icon:'\u2600',cond:'Hot & dry \u2014 9 hrs sunshine/day',hf:86,hc:30,lf:61,lc:16,rain:15,note:'The hardest weather stretch. No shade for 10+ mile stretches. Start by 6am. Carry at least 2 liters; fountains are 6\u20139 miles apart. Electrolytes are non-negotiable.'},
+  {region:'Le\u00f3n \u2192 Astorga',dates:'Jul 15\u201318 \u00b7 High plateau',icon:'\u2600',cond:'Hot & sunny \u2014 9 hrs sunshine/day',hf:84,hc:29,lf:59,lc:15,rain:15,note:'Similar to the Meseta but terrain becomes more varied. Cool mornings are your window. Le\u00f3n is worth an afternoon rest.'},
+  {region:'Mountains & Cruz de Ferro',dates:'Jul 19\u201322 \u00b7 Up to 1,500m / 4,900ft',icon:'\u26C5',cond:'Cooler at altitude \u2014 7 hrs sunshine',hf:72,hc:22,lf:52,lc:11,rain:25,note:'Real relief from the heat. Bring a layer for early morning starts. Cruz de Ferro sits at 1,504m. The descent into Galicia can be misty and cold.'},
+  {region:'Galicia \u2014 Sarria to Santiago',dates:'Jul 23\u201328 \u00b7 Atlantic coast',icon:'\u2614',cond:'Mild, occasional rain \u2014 lush forest',hf:75,hc:24,lf:57,lc:14,rain:35,note:"July is Galicia's driest month, but Atlantic fronts still bring rain on roughly 1 in 3 days. The last 100km is shaded eucalyptus forest. Keep your rain jacket in your hip belt."},
+];
+
+const ADVICE=[
+  {tip:"Don't over-book your stages",body:"Booking everything in advance cuts you off from the trail families that form spontaneously, the villages that feel right, and the freedom the Camino is actually about.",src:'Epic Camino \u2014 10 Top Tips',url:'https://epiccamino.com/10-top-tips-for-walking-the-camino-frances/'},
+  {tip:'The Camino is not a race',body:"Most pilgrims walk 20\u201330km a day \u2014 but at a gentle pace with coffee stops, that's only 5\u20137 hours. You're not trying to set records. You're trying to arrive.",src:'Camino Adventures',url:'https://www.caminoadventures.com/blog/walking-the-camino-all-you-need-to-know/'},
+  {tip:'Train before you go \u2014 really',body:"Nothing fully prepares your body for walking 20km daily with a pack for two weeks. Ramp up to at least 5\u201310km on consecutive days before you arrive.",src:'Unanchored Passenger \u2014 47 Tips from a 3x Pilgrim',url:'https://unanchoredpassenger.com/camino-de-santiago-tips/'},
+  {tip:'Treat foot issues immediately',body:"If you feel a blister starting, stop and deal with it. People who tried to tough it out often did not make Santiago. Small things become very big things on the Camino.",src:'Vanhalla Adventures \u2014 First-Timer Guide',url:'https://www.vanhalla.life/blog/caminoguide'},
+  {tip:'Municipal albergues are the soul of the Camino',body:"The communal dinners, the snorers, the 6am starts \u2014 this is the experience. Booking only private rooms cuts you off from what the Camino is actually about.",src:'Epic Camino \u2014 10 Top Tips',url:'https://epiccamino.com/10-top-tips-for-walking-the-camino-frances/'},
+  {tip:'It will change you \u2014 but not how you expect',body:"The only thing any pilgrim says for certain is that it changes them. The how is different for everyone. Go without fixed expectations of what the Camino is supposed to do for you.",src:'Vanhalla Adventures \u2014 First-Timer Guide',url:'https://www.vanhalla.life/blog/caminoguide'},
+  {tip:'Bring sandals \u2014 you will thank yourself',body:"Many pilgrims regret not bringing a second pair of shoes. Sandals for evenings and rest days let your feet breathe and recover. Foot recovery equipment, not a luxury.",src:'A Little Adrift \u2014 Complete Guide',url:'https://alittleadrift.com/walking-the-camino-de-santiago-frances/'},
+  {tip:"It's a hike, not just a walk",body:"Considerable slopes, rocky paths, sometimes mud. The Camino Frances surprises people who train only on flat ground. Practice on hills and uneven surfaces.",src:'Camino de Santiago Forum',url:'https://www.caminodesantiago.me/community/threads/my-first-time-camino-a-review-of-the-good-the-bad-and-the-cows.54617/'},
+];
+
+let doneTasks=new Set(JSON.parse(localStorage.getItem('cam:t')||'[]'));
+let doneGear=new Set(JSON.parse(localStorage.getItem('cam:g')||'[]'));
+let curTab='timeline',curPlan='main',curFil='all';
+let expW=null,expG=null,openN=new Set();
+const allT=WEEKS.flatMap(w=>w.tasks.map(t=>t.id));
+const allG=GEAR.flatMap(c=>c.items.map(i=>i.id));
+
+function save(){localStorage.setItem('cam:t',JSON.stringify([...doneTasks]));localStorage.setItem('cam:g',JSON.stringify([...doneGear]))}
+
+function updH(){
+  const t=new Date();t.setHours(0,0,0,0);
+  const d=new Date('2026-07-06');d.setHours(0,0,0,0);
+  document.getElementById('dv').textContent=Math.max(0,Math.ceil((d-t)/86400000));
+  const dt=doneTasks.size,tt=allT.length,dg=doneGear.size,tg=allG.length;
+  document.getElementById('tv').textContent=dt+'/'+tt;
+  document.getElementById('gv').textContent=dg+'/'+tg;
+  const p=Math.round(((dt+dg)/(tt+tg))*100);
+  document.getElementById('pv').textContent=p+'%';
+  document.getElementById('pf').style.width=p+'%';
+}
+
+function getCW(){
+  const t=new Date();t.setHours(0,0,0,0);
+  const w=new Date('2026-05-25');w.setHours(0,0,0,0);
+  return Math.max(0,Math.min(5,Math.floor((t-w)/(7*86400000))));
+}
+
+function lkL(url){
+  if(!url)return'Open';
+  if(url.includes('osprey'))return'Shop Osprey';
+  if(url.includes('rei.com'))return'Shop REI';
+  if(url.includes('darntough'))return'Darn Tough';
+  if(url.includes('worldnomads'))return'World Nomads';
+  if(url.includes('americanpilgrims'))return'Order now';
+  if(url.includes('ttp.dhs'))return'Apply now';
+  if(url.includes('booking'))return'Booking.com';
+  if(url.includes('gronze'))return'Gronze.com';
+  if(url.includes('barkadelphia'))return'barKadelphia';
+  if(url.includes('rover'))return'Rover';
+  if(url.includes('amazon'))return'Amazon';
+  if(url.includes('google.com/flights'))return'Google Flights';
+  return'Open';
+}
+
+function trow(task,done){
+  const nv=openN.has(task.id);
+  return`<div class="tr">
+    <button class="chk${done?' on':''}" onclick="togT('${task.id}')">${done?'\u2713':''}</button>
+    <div class="tc">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:4px">
+        <span class="tt${done?' dn':''}" onclick="togN('${task.id}')">${task.text}</span>
+        <span class="tg">${task.tag}</span>
+      </div>
+      ${nv&&task.note?`<p class="tn">${task.note}</p>`:''}
+      <div class="tf">
+        ${task.link?`<a class="lk" href="${task.link}" target="_blank">\u2197 ${lkL(task.link)}</a>`:''}
+        ${task.note&&!nv?`<button class="sn" onclick="togN('${task.id}')">show note</button>`:''}
+      </div>
+    </div>
+  </div>`;
+}
+
+function togT(id){doneTasks.has(id)?doneTasks.delete(id):doneTasks.add(id);save();updH();render()}
+function togG(id){doneGear.has(id)?doneGear.delete(id):doneGear.add(id);save();updH();renderGear()}
+function togN(id){openN.has(id)?openN.delete(id):openN.add(id);render()}
+
+function render(){
+  if(curTab==='timeline')renderTL();
+  else if(curTab==='tasks')renderTasks();
+  else if(curTab==='gear')renderGear();
+}
+
+function go(tab){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tab-'+tab).classList.add('on');
+  ['timeline','tasks','trip','gear','wisdom','budget'].forEach((t,i)=>{
+    if(t===tab)document.querySelectorAll('.nb')[i].classList.add('on');
+  });
+  curTab=tab;render();
+  if(tab==='trip')renderTrip();
+  if(tab==='wisdom')renderWisdom();
+  if(tab==='budget')renderBudget();
+  window.scrollTo(0,0);
+}
+
+function renderTL(){
+  const cw=getCW();
+  if(expW===null)expW=cw;
+  let h='';
+  WEEKS.forEach((w,i)=>{
+    const wd=w.tasks.filter(t=>doneTasks.has(t.id)).length,isE=expW===i,isCur=i===cw;
+    const cc=wd===w.tasks.length?'var(--gold)':'var(--text2)';
+    h+=`<div class="card${isCur?' wn':''}">
+      <div class="ah" onclick="togW(${i})">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span class="al">${w.label}</span>
+            ${isCur?`<span class="wp">${SH}This week</span>`:''}
+          </div>
+          <div class="am">${w.dates} \u00b7 ${w.theme}</div>
+        </div>
+        <div class="ar">
+          <span class="ac" style="color:${cc}">${wd}/${w.tasks.length}</span>
+          <span class="wa${isE?' op':''}">\u2192</span>
+        </div>
+      </div>
+      ${isE?w.tasks.map(t=>trow(t,doneTasks.has(t.id))).join(''):''}
+    </div>`;
+  });
+  document.getElementById('tl').innerHTML=h;
+}
+function togW(i){expW=expW===i?null:i;renderTL()}
+
+function renderTasks(){
+  const tags=['all','admin','travel','camino','training','gear','logistics'];
+  const all=WEEKS.flatMap(w=>w.tasks);
+  const fil=curFil==='all'?all:all.filter(t=>t.tag===curFil);
+  const dn=fil.filter(t=>doneTasks.has(t.id)).length;
+  document.getElementById('chips').innerHTML=tags.map(tag=>{
+    const ct=tag==='all'?all.length:all.filter(t=>t.tag===tag).length;
+    return`<button class="chip${curFil===tag?' on':''}" onclick="setFil('${tag}')">${tag==='all'?'All ('+ct+')':tag+' ('+ct+')'}</button>`;
+  }).join('');
+  document.getElementById('tsum').textContent=dn+' of '+fil.length+' complete';
+  document.getElementById('tlist').innerHTML=fil.map(t=>trow(t,doneTasks.has(t.id))).join('');
+}
+function setFil(f){curFil=f;renderTasks()}
+
+function setPlan(p){
+  curPlan=p;
+  document.getElementById('ib-m').className='ib'+(p==='main'?' on':'');
+  document.getElementById('ib-b').className='ib'+(p==='backup'?' on':'');
+  renderTrip();
+}
+
+function renderTrip(){
+  const pl=ITINS[curPlan];
+  let wx=`<p class="sect" style="margin-top:16px">Historical July weather along the route</p>`;
+  WX.forEach(w=>{
+    const bw=Math.round(w.rain*2.4);
+    const bc=w.rain<20?'var(--gold)':w.rain<30?'#E8A830':'var(--blue)';
+    wx+=`<div class="wx-card">
+      <div class="wx-hdr">
+        <div>
+          <div class="wx-reg">${w.region}</div>
+          <div class="wx-dates">${w.dates}</div>
+        </div>
+        <div class="wx-icon">${w.icon}</div>
+      </div>
+      <div class="wx-body">
+        <div class="wx-temps">
+          <div class="wx-hi">${w.hf}\u00b0F</div>
+          <div style="color:var(--text3);font-size:13px;font-weight:300">/ ${w.hc}\u00b0C high</div>
+          <div style="margin-left:6px;color:var(--text2);font-size:13px;font-weight:300">${w.lf}\u00b0F low</div>
+        </div>
+        <div class="wx-cond">${w.cond}</div>
+        <div class="wx-brow">
+          <span class="wx-bl">Rain chance</span>
+          <div class="wx-bg"><div class="wx-bf" style="width:${bw}%;background:${bc}"></div></div>
+          <span class="wx-pct">${w.rain}%</span>
+        </div>
+        <div class="wx-note">${w.note}</div>
+      </div>
+    </div>`;
+  });
+  document.getElementById('trip-c').innerHTML=`<div class="card" style="margin-bottom:10px">
+    <div style="padding:14px 16px 10px;border-bottom:1px solid var(--bdr2)">
+      <p style="font-size:11px;color:var(--text2);margin-bottom:3px;font-weight:300">${pl.sub}</p>
+      <p style="font-size:13px;color:var(--text2);line-height:1.55;font-weight:300">${pl.note}</p>
+    </div>
+    ${pl.milestones.map(m=>`<div class="ms"><span class="md">${m.date}</span><span class="mt">${m.text}</span></div>`).join('')}
+  </div>${wx}`;
+}
+
+function renderGear(){
+  const done=allG.filter(id=>doneGear.has(id)).length;
+  let h=`<p style="font-size:12px;color:var(--text2);margin-bottom:10px;font-weight:300">${done} of ${allG.length} items ready \u00b7 <span style="color:var(--cream);font-weight:500">Target: under 15\u201320 lbs loaded</span></p>`;
+  GEAR.forEach(cat=>{
+    const cd=cat.items.filter(i=>doneGear.has(i.id)).length,isO=expG===cat.id;
+    const cc=cd===cat.items.length?'var(--gold)':'var(--text2)';
+    h+=`<div class="card">
+      <div class="ah" onclick="togGC('${cat.id}')">
+        <span class="al">${cat.label}</span>
+        <div class="ar">
+          <span class="ac" style="color:${cc}">${cd}/${cat.items.length}</span>
+          <span class="wa${isO?' op':''}">\u2192</span>
+        </div>
+      </div>
+      ${isO?cat.items.map(item=>`<div class="tr">
+        <button class="chk${doneGear.has(item.id)?' on':''}" onclick="togG('${item.id}')">${doneGear.has(item.id)?'\u2713':''}</button>
+        <div style="flex:1;min-width:0">
+          <p style="font-size:13.5px;font-weight:400;margin-bottom:3px;line-height:1.35;${doneGear.has(item.id)?'color:var(--text3);text-decoration:line-through':''}">${item.text}</p>
+          <p style="font-size:12px;color:var(--text2);line-height:1.55;margin-bottom:5px;font-weight:300">${item.note}</p>
+          ${item.link?`<a class="lk" href="${item.link}" target="_blank">\u2197 ${item.lbl}</a>`:''}
+        </div>
+      </div>`).join(''):''}
+    </div>`;
+  });
+  document.getElementById('gear-c').innerHTML=h;
+}
+function togGC(id){expG=expG===id?null:id;renderGear()}
+
+function renderWisdom(){
+  let h=`<p class="sect">The Pilgrimage \u2014 Paulo Coelho</p>
+  <div class="ci">In 1986, Paulo Coelho walked the Camino Franc\u00e9s from Saint-Jean-Pied-de-Port to Santiago de Compostela. That walk became <em>The Pilgrimage</em> (1987) \u2014 part memoir, part spiritual guide. He walked at a moment of personal crisis, and the Camino returned him to his own life with unexpected clarity.<div style="margin-top:10px"><a class="lk" href="https://www.amazon.com/s?k=paulo+coelho+the+pilgrimage" target="_blank">\u2197 Find the book on Amazon</a></div></div>
+  <div class="quote-w">
+    <div class="qm">\u201c</div>
+    <div class="qt">Once a problem is solved, its simplicity is amazing.</div>
+    <div class="qa">\u2014 Paulo Coelho, The Pilgrimage</div>
+  </div>
+  <div class="info-b">
+    <h3>Themes from the book</h3>
+    <p>Coelho writes that we always know the better road to follow \u2014 we just tend to stick to the one we have grown accustomed to. The Camino, for him, was the act of finally choosing the unfamiliar road.</p>
+    <p>He reflects that an awareness of death gives each day its full weight and meaning. Walking the Camino makes this concrete: you are moving through something finite, one deliberate step at a time.</p>
+    <p>Throughout the book, Coelho describes dreams as nourishment for the soul \u2014 not optional, but essential. The Camino is partly a practice in keeping them alive when ordinary life has ground them down.</p>
+  </div>
+  <p class="sect" style="margin-top:16px">From people who have walked</p>`;
+  ADVICE.forEach(a=>{
+    h+=`<div class="adc">
+      <div class="adc-t">${SH}${a.tip}</div>
+      <div class="adc-b">${a.body}</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <span class="adc-s">${a.src}</span>
+        <a class="lk" href="${a.url}" target="_blank" style="font-size:11px">\u2197 read more</a>
+      </div>
+    </div>`;
+  });
+  h+=`<div class="info-b" style="margin-top:6px">
+    <h3>More pilgrim resources</h3>
+    <p><a class="lk" href="https://www.caminodesantiago.me/community/" target="_blank">\u2197 The Camino Forum</a> \u2014 the largest English-language pilgrim community. Search any question; it's probably been answered.</p>
+    <p><a class="lk" href="https://www.reddit.com/r/CaminoDeSantiago/" target="_blank">\u2197 r/CaminoDeSantiago</a> \u2014 active community with recent trip reports and real-time advice.</p>
+    <p><a class="lk" href="https://americanpilgrims.org/" target="_blank">\u2197 American Pilgrims on the Camino</a> \u2014 U.S.-based org with resources, credentials, and local chapters.</p>
+    <p><a class="lk" href="https://stingynomads.com/camino-frances-walking-itinerary/" target="_blank">\u2197 Stingy Nomads \u2014 Camino Frances Guide</a> \u2014 most comprehensive free route guide, including GPX files.</p>
+  </div>`;
+  document.getElementById('wis-c').innerHTML=h;
+}
+
+function renderBudget(){
+  const lo=BUDGET.reduce((s,i)=>s+i.lo,0),hi=BUDGET.reduce((s,i)=>s+i.hi,0);
+  let h=`<div class="bt">
+    <div class="bt-l">Total trip estimate</div>
+    <div class="ba">$${lo.toLocaleString()} \u2013 $${hi.toLocaleString()}</div>
+    <div class="bs">Flights, gear, dog boarding, and all in-trip expenses</div>
+  </div>
+  <div class="tip-b">
+    <h3>Ways to save</h3>
+    <ul>
+      <li>Public albergues (\u20ac10\u201312) vs. private rooms (\u20ac35\u201360) \u2014 biggest lever.</li>
+      <li>Grocery breakfast and lunch most days (~\u20ac5), pilgrim menu dinner (\u20ac12\u201315).</li>
+      <li>Check if your credit card reimburses Global Entry ($120).</li>
+      <li>Replenish sunscreen and pharmacy items at Spanish farmacias \u2014 cheap.</li>
+    </ul>
+  </div>`;
+  BUDGET.forEach(item=>{
+    h+=`<div class="card"><div class="br2">
+      <div class="bt2"><span class="bc">${item.cat}</span><span class="bv">$${item.lo.toLocaleString()}${item.lo!==item.hi?'\u2013'+item.hi.toLocaleString():''}</span></div>
+      <p class="bn">${item.note}</p>
+    </div></div>`;
+  });
+  document.getElementById('bud-c').innerHTML=h;
+}
+
+updH();renderTL();
+</script>
+</body>
+</html>
